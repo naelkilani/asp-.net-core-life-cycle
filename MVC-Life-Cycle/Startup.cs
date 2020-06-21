@@ -12,6 +12,7 @@ using MVC_Life_Cycle.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MVC_Life_Cycle.Middlewares;
 
 namespace MVC_Life_Cycle
 {
@@ -51,6 +52,8 @@ namespace MVC_Life_Cycle
                 app.UseHsts();
             }
 
+            app.UseMiddleware<FeatureSwitchMiddleware>();    
+            
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
