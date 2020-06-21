@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <UserSecretsId>aspnet-MVC_Life_Cycle-857FEDE0-6C15-456D-AA08-54E96EE6745C</UserSecretsId>
+        <RootNamespace>MVC_Life_Cycle</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Update="app.db" CopyToOutputDirectory="PreserveNewest" ExcludeFromSingleFile="true"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.4"/>
+        <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.4"/>
+        <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.4"/>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.4"/>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.4"/>
+    </ItemGroup>
+
+</Project>
