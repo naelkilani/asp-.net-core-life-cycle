@@ -31,8 +31,10 @@ namespace MVC_Life_Cycle
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseMySQL(
                     Configuration.GetConnectionString("DefaultConnection")));
+            
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+            
             services.AddControllersWithViews();
             services.AddRazorPages();
         }
@@ -52,7 +54,7 @@ namespace MVC_Life_Cycle
                 app.UseHsts();
             }
 
-            app.UseMiddleware<FeatureSwitchMiddleware>();    
+            app.UseMiddleware<FeatureSwitchMiddleware>();
             
             app.UseHttpsRedirection();
             app.UseStaticFiles();
