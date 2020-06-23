@@ -5,10 +5,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using MVC_Life_Cycle.Filters;
 using MVC_Life_Cycle.Models;
 
 namespace MVC_Life_Cycle.Controllers
 {
+    [TypeFilter(typeof(OutageAuthorizationFilter))] // We can't simply use [OutageAuthorizationFilter] because OutageAuthorizationFilter contains constructor so TypeFilter take care of this.
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
