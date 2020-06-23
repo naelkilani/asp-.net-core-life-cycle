@@ -10,7 +10,7 @@ using MVC_Life_Cycle.Models;
 
 namespace MVC_Life_Cycle.Controllers
 {
-    [TypeFilter(typeof(OutageAuthorizationFilter))] // We can't simply use [OutageAuthorizationFilter] because OutageAuthorizationFilter contains constructor so TypeFilter take care of this.
+    //[TypeFilter(typeof(OutageAuthorizationFilter))] // We can't simply use [OutageAuthorizationFilter] because OutageAuthorizationFilter contains constructor so TypeFilter take care of this.
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;

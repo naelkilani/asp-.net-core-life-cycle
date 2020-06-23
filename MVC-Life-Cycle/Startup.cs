@@ -12,6 +12,7 @@ using MVC_Life_Cycle.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MVC_Life_Cycle.Filters;
 using MVC_Life_Cycle.Middlewares;
 
 namespace MVC_Life_Cycle
@@ -37,6 +38,11 @@ namespace MVC_Life_Cycle
             
             services.AddControllersWithViews();
             services.AddRazorPages();
+
+            services.AddMvc(options =>
+            {
+                options.Filters.Add(typeof(OutageAuthorizationFilter));
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
