@@ -61,6 +61,8 @@ namespace MVC_Life_Cycle
 
             app.UseRouting();
 
+            app.UseMiddleware<FeatureSwichAuthMidddleware>();
+            
             app.UseAuthentication();
             app.UseAuthorization();
 

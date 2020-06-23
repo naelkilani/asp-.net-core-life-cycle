@@ -28,6 +28,12 @@ namespace MVC_Life_Cycle.Controllers
             return View();
         }
 
+        [Route("/contact-us", Name = "Contact")]
+        public IActionResult Contact()
+        {
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
