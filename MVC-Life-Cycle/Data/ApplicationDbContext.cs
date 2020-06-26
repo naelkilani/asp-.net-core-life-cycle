@@ -1,11 +1,15 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using MVC_Life_Cycle.Models;
 
 namespace MVC_Life_Cycle.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {
+
+        public DbSet<Person> Persons { get; set; }   
+        
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
