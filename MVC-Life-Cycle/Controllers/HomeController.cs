@@ -22,6 +22,23 @@ namespace MVC_Life_Cycle.Controllers
 
         public IActionResult Index()
         {
+            _logger.LogInformation("In Index Action");
+
+            try
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    _logger.LogInformation("The value of i is {LoopCountValue}", i);
+
+                    if (i == 55)
+                        throw new Exception("This is our demo Exception.");
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "An error has occurred in index action.");
+            }
+            
             return View();
         }
 

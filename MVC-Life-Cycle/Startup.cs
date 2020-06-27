@@ -15,6 +15,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MVC_Life_Cycle.Filters;
 using MVC_Life_Cycle.Middlewares;
+using Serilog;
 
 namespace MVC_Life_Cycle
 {
@@ -36,7 +37,7 @@ namespace MVC_Life_Cycle
             
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
-            
+             
             services.AddControllersWithViews();
             services.AddRazorPages();
 
@@ -68,18 +69,20 @@ namespace MVC_Life_Cycle
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
+            app.UseSerilogRequestLogging();
+
             app.UseRouting();
 
             app.UseMiddleware<FeatureSwichAuthMidddleware>();
             
+            // Who are you?
             app.UseAuthentication();
+            // Are you allowed to pass? 
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapDefaultControllerRoute();
                 endpoints.MapRazorPages();
             });
         }
